@@ -1,0 +1,125 @@
+body {
+  background-color: #F2FCFF;
+}
+
+li {
+  display: inline-block;
+}
+
+
+/*   FLAGS   */
+
+.sprite-flags {
+  display: inline-block;
+  background-image: url("../img/sprite-flags.png");
+}
+
+.sprite-flags-large {
+  width: 41px;
+  height: 30px;
+}
+
+.sprite-flags-small {
+  width: 26px;
+  height: 19px;
+}
+
+.sprite-flags-small-ARG {
+  background-position: -520px -577px;
+}
+
+.sprite-flags-large-ARG {
+  background-position: -123px -0px;
+}
+
+.sprite-flags-large-BRA {
+  background-position: -246px -118px;
+}
+
+.sprite-flags-small-BRA {
+  background-position: -585px -152px;
+}
+
+.sprite-flags-large-CAN {
+  background-position: -287px -89px;
+}
+
+.sprite-flags-small-CAN {
+  background-position: -364px -558px;
+}
+
+.sprite-flags-large-GBR {
+  background-position: -410px -236px;
+}
+
+.sprite-flags-small-GBR {
+  background-position: -208px -520px;
+}
+
+.sprite-flags-large-GRE {
+  background-position: -287px -384px;
+}
+
+.sprite-flags-small-GRE {
+  background-position: -533px -437px;
+}
+
+.sprite-flags-large-JPN {
+  background-position: -492px -177px;
+}
+
+.sprite-flags-small-JPN {
+  background-position: -335px -472px;
+}
+
+.sprite-flags-large-MAD {
+  background-position: -451px -413px;
+}
+.sprite-flags-small-MAD {
+  background-position: -364px -501px;
+}
+
+.sprite-flags-large-MEX {
+  background-position: -451px -59px;
+}
+
+.sprite-flags-small-MEX {
+  background-position: -533px -114px;
+}
+
+.sprite-flags-large-NZL {
+  background-position: -369px -354px;
+}
+.sprite-flags-small-NZL {
+  background-position: -494px -520px;
+}
+
+.sprite-flags-large-POL {
+  background-position: -369px -89px;
+}
+.sprite-flags-small-POL {
+  background-position: -494px -539px;
+}
+
+.sprite-flags-large-RSA {
+  background-position: -82px -325px;
+}
+
+.sprite-flags-small-RSA {
+  background-position: -559px -190px;
+}
+
+.sprite-flags-large-SWE {
+  background-position: -123px -236px;
+}
+.sprite-flags-small-SWE {
+  background-position: -585px -19px;
+}
+
+.sprite-flags-large-USA {
+  background-position: -164px -30px;
+}
+
+.sprite-flags-small-USA {
+  background-position: -338px -577px;
+}

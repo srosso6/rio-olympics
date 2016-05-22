@@ -101,11 +101,12 @@ i += 1
 end
 
 
+# puts Nation.find(1).title
+
 # n4_athletes = nation_4.athletes()
 # n4_athletes.each { |athlete| puts athlete.full_name() }
 
 # puts athletes[10].nation().title
-
 
 # athletes_in_2 = event_2.athletes()
 # athletes_in_2.each { |athlete| puts athlete.full_name() }

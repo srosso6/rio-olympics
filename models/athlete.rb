@@ -33,6 +33,27 @@ class Athlete
     return Athlete.map_athlete(sql)
   end
 
+  def self.all()
+    sql = "SELECT * FROM athletes"
+    return Athlete.map_athletes(sql)
+  end
+
+  def self.find(id)
+    sql = "SELECT * FROM athletes
+      WHERE athletes.id = #{id};"
+    return Athlete.map_athlete(sql)
+  end
+
+  def self.update(options)
+    sql = "UPDATE athletes SET 
+      first_name = '#{options['first_name']}',
+      last_name = '#{options['last_name']}',
+      gender = '#{options['gender']}',
+      nation_id = '#{options['nation_id']}'
+      WHERE athletes.id = #{options['id']};"
+    SqlRunner.run(sql)
+  end
+
   # def self.delete_all()
   #   sql = "DELETE FROM athletes"
   #   SqlRunner.run(sql)
@@ -40,6 +61,12 @@ class Athlete
 
   def self.delete_all()
     sql = "TRUNCATE TABLE athletes RESTART IDENTITY CASCADE;"
+    SqlRunner.run(sql)
+  end
+
+  def self.destroy(id)
+    sql = "DELETE FROM athletes
+      WHERE id = #{id};"
     SqlRunner.run(sql)
   end
 

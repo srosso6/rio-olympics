@@ -26,6 +26,25 @@ class Nation
     return Nation.map_nation(sql)
   end
 
+  def self.all()
+    sql = "SELECT * FROM nations"
+    return Nation.map_nations(sql)
+  end
+
+  def self.find(id)
+    sql = "SELECT * FROM nations
+      WHERE nations.id = #{id};"
+    return Nation.map_nation(sql)
+  end
+
+  def self.update(options)
+    sql = "UPDATE nations SET 
+      title = '#{options['title']}',
+      code = '#{options['code']}'
+      WHERE nations.id = #{options['id']};"
+    SqlRunner.run(sql)
+  end
+
   # def self.delete_all()
   #   sql = "DELETE FROM nations"
   #   SqlRunner.run(sql)
@@ -33,6 +52,12 @@ class Nation
 
   def self.delete_all()
     sql = "TRUNCATE TABLE nations RESTART IDENTITY CASCADE;"
+    SqlRunner.run(sql)
+  end
+
+  def self.destroy(id)
+    sql = "DELETE FROM nations
+      WHERE id = #{id};"
     SqlRunner.run(sql)
   end
 

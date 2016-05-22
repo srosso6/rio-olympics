@@ -1,0 +1,16 @@
+<h1>Edit Event</h1>
+
+<form action="/events/<%= @event.id %>" method="post">
+<input type="hidden" name="_method" value="put">
+
+    <label for="sport">Sport:</label>
+    <input type="text" name="sport" value="<%= @event.sport %>"><br>
+
+    <label for="type">Type:</label>
+    <input type="text" name="type" value="<%= @event.type %>"><br>
+
+    <label for="day">Date:</label>
+    <input type="date" name="day" value="<%= @event.day %>"><br>
+
+    <button type="submit" name="edit event">Edit</button>
+</form>

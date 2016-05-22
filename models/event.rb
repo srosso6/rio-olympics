@@ -4,7 +4,7 @@ require('pry-byebug')
 
 class Event
 
-  attr_reader( :id, :sport, :type, :date )
+  attr_reader( :id, :sport, :type, :day )
   attr_accessor( :gold_winner, :silver_winner, :bronze_winner )
 
   def initialize(options)
@@ -35,6 +35,26 @@ class Event
     return Event.map_event(sql)
   end
 
+  def self.all()
+    sql = "SELECT * FROM events"
+    return Event.map_events(sql)
+  end
+
+  def self.find(id)
+    sql = "SELECT * FROM events
+      WHERE events.id = #{id};"
+    return Event.map_event(sql)
+  end
+
+  def self.update(options)
+    sql = "UPDATE events SET 
+      sport = '#{options['sport']}',
+      type = '#{options['type']}',
+      day = '#{options['day']}'
+      WHERE events.id = #{options['id']};"
+    SqlRunner.run(sql)
+  end
+
   # def self.delete_all()
   #   sql = "DELETE FROM events"
   #   SqlRunner.run(sql)
@@ -45,9 +65,10 @@ class Event
     SqlRunner.run(sql)
   end
 
-  def self.all()
-    sql = "SELECT * FROM events"
-    return Event.map_events(sql)
+  def self.destroy(id)
+    sql = "DELETE FROM events
+      WHERE id = #{id};"
+    SqlRunner.run(sql)
   end
 
   def add_athlete(athlete)
