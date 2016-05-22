@@ -22,15 +22,24 @@ class Nation
   end
 
   def save()
-    sql = "INSERT INTO nations (title, code) VALUES ('#{@title}', '#{@code}' ) RETURNING *"
-    nations = SqlRunner.run(sql).first
-    result = Nation.new(nations)
-    return result
+    sql = "INSERT INTO nations (title, code) VALUES ('#{@title}', '#{@code}' ) RETURNING *;"
+    return Nation.map_nation(sql)
   end
 
+  # def self.delete_all()
+  #   sql = "DELETE FROM nations"
+  #   SqlRunner.run(sql)
+  # end
+
   def self.delete_all()
-    sql = "DELETE FROM nations"
+    sql = "TRUNCATE TABLE nations RESTART IDENTITY CASCADE;"
     SqlRunner.run(sql)
+  end
+
+  def athletes()
+    sql = "SELECT * FROM athletes
+      WHERE nation_id = #{@id};"
+    return Athlete.map_athletes(sql)
   end
 
 end

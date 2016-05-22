@@ -31,20 +31,54 @@ class Event
   end
 
   def save()
-    sql = "INSERT INTO events (sport, type, day) VALUES ('#{@sport}', '#{@type}', '#{@day}' ) RETURNING *"
-    events = SqlRunner.run(sql).first
-    result = Event.new(events)
-    return result
+    sql = "INSERT INTO events (sport, type, day) VALUES ('#{@sport}', '#{@type}', '#{@day}' ) RETURNING *;"
+    return Event.map_event(sql)
   end
 
+  # def self.delete_all()
+  #   sql = "DELETE FROM events"
+  #   SqlRunner.run(sql)
+  # end
+
   def self.delete_all()
-    sql = "DELETE FROM events"
+    sql = "TRUNCATE TABLE events RESTART IDENTITY CASCADE;"
     SqlRunner.run(sql)
   end
 
   def self.all()
     sql = "SELECT * FROM events"
     return Event.map_events(sql)
+  end
+
+  def add_athlete(athlete)
+    sql = "INSERT INTO athletes_events (athlete_id, event_id) VALUES (#{athlete.id}, #{@id});"
+    SqlRunner.run(sql)
+  end
+
+  def add_athletes(athletes)
+    athletes.each do |athlete|
+      add_athlete(athlete)
+    end
+  end
+
+  def delete_athlete(athlete)
+    sql = "DELETE FROM athletes_events
+      WHERE athletes_events.athlete_id = #{athlete.id};"
+    SqlRunner.run(sql)
+  end
+
+  def delete_athletes(athletes)
+    athletes.each do |athlete|
+      delete_athlete(athlete)
+    end
+  end
+
+  def athletes()
+    sql = "SELECT a.* FROM athletes a
+      INNER JOIN athletes_events ae
+      ON a.id = ae.athlete_id
+      WHERE ae.event_id = #{@id};"
+    return Athlete.map_athletes(sql)
   end
 
 end
