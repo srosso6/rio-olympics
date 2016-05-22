@@ -7,7 +7,6 @@ CREATE TABLE nations (
 id SERIAL4 primary key,
 title VARCHAR(255),
 code CHAR(3),
-flag_url VARCHAR(255),
 co_ordinates POINT,
 UNIQUE (title, code)
 );
