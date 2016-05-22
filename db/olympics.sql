@@ -2,13 +2,13 @@ DROP TABLE nations CASCADE;
 DROP TABLE athletes CASCADE;
 DROP TABLE events CASCADE;
 DROP TABLE athletes_events;
--- DROP TABLE flags;
 
 CREATE TABLE nations (
 id SERIAL4 primary key,
 title VARCHAR(255),
 code CHAR(3),
 flag_url VARCHAR(255),
+co_ordinates POINT,
 UNIQUE (title, code)
 );
 
@@ -39,9 +39,3 @@ id SERIAL4 primary key,
 athlete_id INT4 references athletes(id) ON DELETE CASCADE,
 event_id INT4 references events(id) ON DELETE CASCADE
 );
-
--- CREATE TABLE flags (
--- id SERIAL4 primary key,
--- nation_id INT4 references nations(id) ON DELETE CASCADE,
--- url VARCHAR(255)
--- );
