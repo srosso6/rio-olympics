@@ -12,5 +12,33 @@
     <label for="day">Date:</label>
     <input type="date" name="day" value="<%= @event.day %>"><br>
 
+    <label for="gold_winner">Gold Winner:</label>
+      <select name="gold_winner">
+        <option value="0">No Winner</option>
+        <% @event.athletes.each do |athlete| %>
+        <option value="<%= athlete.id %>" <%= "selected" if @event.gold_winner == athlete.id %>><%= athlete.full_name %></option>
+        <% end %>
+    </select>
+
+    <label for="silver_winner">Silver Winner:</label>
+      <select name="silver_winner">
+        <option value="0">No Winner</option>
+        <% @event.athletes.each do |athlete| %>
+        <option value="<%= athlete.id %>" <%= "selected" if @event.silver_winner == athlete.id %>><%= athlete.full_name %></option>
+        <% end %>
+    </select>
+
+    <label for="bronze_winner">Bronze Winner:</label>
+      <select name="bronze_winner">
+        <option value="0">No Winner</option>
+        <% @event.athletes.each do |athlete| %>
+        <option value="<%= athlete.id %>" <%= "selected" if @event.bronze_winner == athlete.id %>><%= athlete.full_name %></option>
+        <% end %>
+    </select>
+
+    <br>
     <button type="submit" name="edit event">Edit</button>
 </form>
+
+<br>
+<a href="/events">Back to all events</a>

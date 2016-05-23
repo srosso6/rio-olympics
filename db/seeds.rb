@@ -22,6 +22,8 @@ nation_10 = Nation.new( { "title" => "New Zealand", "code" => "NZL" } ).save()
 nation_11 = Nation.new( { "title" => "Madagasca", "code" => "MAD" } ).save()
 nation_12 = Nation.new( { "title" => "South Africa", "code" => "RSA" } ).save()
 
+nations = [nation_1, nation_2, nation_3, nation_4, nation_5, nation_6, nation_7, nation_8, nation_9, nation_10, nation_11, nation_12]
+
 
 athletes_data = [ 
   {"first_name" => "Aaron", "last_name" => "Brown", "gender" => "m", "nation_id" => nation_1.id},
@@ -80,7 +82,6 @@ athletes = athletes_data.map { |athlete| Athlete.new(athlete).save() }
 
 
 events_data = [
- # {"sport" => "Athletics", "type" => "10,000m", "day" => Date.new(2016, 05, 20), "gold_winner" => athletes[0].id, "silver_winner" => athletes[10].id, "bronze_winner" => athletes[20].id } ]
  {"sport" => "Athletics", "type" => "10,000m", "day" => Date.new(2016, 05, 20) },
  {"sport" => "Athletics", "type" => "High Jump", "day" => Date.new(2016, 05, 21), },
  {"sport" => "Athletics", "type" => "Javelin Throw", "day" => Date.new(2016, 05, 22), },
@@ -93,9 +94,8 @@ events_data = [
  {"sport" => "Diving", "type" => "10m platform", "day" => Date.new(2016, 05, 29), }
 ]
 
-nations = [nation_1, nation_2, nation_3, nation_4, nation_5, nation_6, nation_7, nation_8, nation_9, nation_10, nation_11, nation_12]
-
 events = events_data.map { |event| Event.new(event).save() }
+
 
 i = 0
   while i<events.length
@@ -103,13 +103,14 @@ i = 0
   i += 1
 end
 
-i = 0
-events[i].add_winners(athletes[i],athletes[i+10],athletes[i+20])
-events[i+1].add_winners(athletes[i+1],athletes[i+11],athletes[i+21])
-events[i+2].add_winners(athletes[i+2],athletes[i+12],athletes[i+22])
-events[i+3].add_winners(athletes[i+3],athletes[i+13],athletes[i+23])
-events[i+4].add_winners(athletes[i+4],athletes[i+14],athletes[i+24])
-events[i+5].add_winners(athletes[i+5],athletes[i+15],athletes[i+25])
+
+events[0].add_winners(athletes[0],athletes[10],athletes[40])
+events[1].add_winners(athletes[21],athletes[11],athletes[31])
+events[2].add_winners(athletes[22],athletes[42],athletes[2])
+events[3].add_winners(athletes[3],athletes[43],athletes[23])
+events[4].add_winners(athletes[14],athletes[4],athletes[34])
+events[5].add_winners(athletes[45],athletes[25],athletes[5])
+
 
 
 

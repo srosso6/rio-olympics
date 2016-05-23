@@ -30,12 +30,22 @@ class TestMedal < Minitest::Test
 
 
     events_data = [
-      {"id" => 1, "sport" => "Athletics", "type" => "10,000m", "day" => Date.new(2016, 05, 20), "gold_winner" => athletes[0].id, "silver_winner" => athletes[6].id, "bronze_winner" => athletes[3].id },
-      {"id" => 2, "sport" => "Athletics", "type" => "High Jump", "day" => Date.new(2016, 05, 21), "gold_winner" => athletes[4].id, "silver_winner" => athletes[7].id, "bronze_winner" => athletes[1].id  },
-      {"id" => 3, "sport" => "Athletics", "type" => "Javelin Throw", "day" => Date.new(2016, 05, 22), "gold_winner" => athletes[8].id, "silver_winner" => athletes[5].id, "bronze_winner" => athletes[2].id  }
+      {"id" => 1, "sport" => "Athletics", "type" => "10,000m", "day" => Date.new(2016, 05, 20) },
+      {"id" => 2, "sport" => "Athletics", "type" => "High Jump", "day" => Date.new(2016, 05, 21) },
+      {"id" => 3, "sport" => "Athletics", "type" => "Javelin Throw", "day" => Date.new(2016, 05, 22) }
       ]
 
       events = events_data.map { |event| Event.new(event) }
+
+      events[0].gold_winner = athletes[0].id
+      events[0].silver_winner = athletes[6].id
+      events[0].bronze_winner = athletes[3].id
+      events[1].gold_winner = athletes[4].id
+      events[1].silver_winner = athletes[7].id
+      events[1].bronze_winner = athletes[1].id
+      events[2].gold_winner = athletes[8].id
+      events[2].silver_winner = athletes[5].id
+      events[2].bronze_winner = athletes[2].id
 
       @medal_1 = Medal.new(nations, events)
 
@@ -45,11 +55,7 @@ class TestMedal < Minitest::Test
     assert_equal({ nation: @nation_1.title, gold: 1, silver: 0, bronze: 2, points: 7 }, @medal_1.count_nation_medals_and_points(@nation_1))
     assert_equal({ nation: @nation_4.title, gold: 1, silver: 1, bronze: 1, points: 9 }, @medal_1.count_nation_medals_and_points(@nation_4))
     assert_equal({ nation: @nation_6.title, gold: 1, silver: 2, bronze: 0, points: 11 }, @medal_1.count_nation_medals_and_points(@nation_6))
-  end
-
-  #Canada = gold-1   silver-0  bronze-2
-  #United States = gold-1  silver-1  bronze-1 
-  #Mexico = old-0  silver-2  bronze-1 
+  end 
 
   def test_results_table()
     assert_equal( 

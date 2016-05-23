@@ -12,13 +12,15 @@ class Event
     @sport = options["sport"]
     @type = options["type"]
     @day = options["day"]
-      @day = @day.class == Date ? @day : Date.parse(@day)
-    # @gold_winner = options["gold_winner"].to_i
-    # @silver_winner = options["silver_winner"].to_i
-    # @bronze_winner = options["bronze_winner"].to_i
+    @day = @day.class == Date ? @day : Date.parse(@day)
     @gold_winner = 0
     @silver_winner = 0
     @bronze_winner = 0
+    if options.has_key?("gold_winner") 
+      @gold_winner = options["gold_winner"].to_i
+      @silver_winner = options["silver_winner"].to_i
+      @bronze_winner = options["bronze_winner"].to_i
+    end
   end
 
   def format_date(date)
@@ -38,8 +40,6 @@ class Event
 
   def save()
     sql = "INSERT INTO events (sport, type, day) VALUES ('#{@sport}', '#{@type}', '#{@day}') RETURNING *;"
-    #, gold_winner, silver_winner, bronze_winner 
-    #, #{@gold_winner}, #{@silver_winner}, #{@bronze_winner}
     return Event.map_event(sql)
   end
 
@@ -82,6 +82,14 @@ class Event
     SqlRunner.run(sql)
   end
 
+  def athletes()
+    sql = "SELECT a.* FROM athletes a
+      INNER JOIN athletes_events ae
+      ON a.id = ae.athlete_id
+      WHERE ae.event_id = #{@id};"
+    return Athlete.map_athletes(sql)
+  end
+
   def add_athlete(athlete)
     sql = "INSERT INTO athletes_events (athlete_id, event_id) VALUES (#{athlete.id}, #{@id});"
     SqlRunner.run(sql)
@@ -105,40 +113,35 @@ class Event
     end
   end
 
-  def athletes()
-    sql = "SELECT a.* FROM athletes a
-      INNER JOIN athletes_events ae
-      ON a.id = ae.athlete_id
-      WHERE ae.event_id = #{@id};"
-    return Athlete.map_athletes(sql)
-  end
-
-  def add_gold_winner(athlete)
-    @gold_winner = athlete.id
-  end
-
-  def add_silver_winner(athlete)
-    @silver_winner = athlete.id
-  end
-
-  def add_bronze_winner(athlete)
-    @bronze_winner = athlete.id
-  end
-
-  def add_winners(athlete_1, athlete_2, athlete_3)
-    @gold_winner = athlete_1.id
-    @silver_winner = athlete_2.id
-    @bronze_winner = athlete_3.id
-    update()
-  end
-
-  def update()
+  def update_winners()
     sql = "UPDATE events SET 
       gold_winner = '#{@gold_winner}',
       silver_winner = '#{@silver_winner}',
       bronze_winner = '#{@bronze_winner}'
       WHERE events.id = #{@id};"
     SqlRunner.run(sql)
+  end
+
+  def add_gold_winner(athlete)
+    @gold_winner = athlete.id
+    update_winners()
+  end
+
+  def add_silver_winner(athlete)
+    @silver_winner = athlete.id
+    update_winners()
+  end
+
+  def add_bronze_winner(athlete)
+    @bronze_winner = athlete.id
+    update_winners()
+  end
+
+  def add_winners(athlete_1, athlete_2, athlete_3)
+    @gold_winner = athlete_1.id
+    @silver_winner = athlete_2.id
+    @bronze_winner = athlete_3.id
+    update_winners()
   end
 
 end

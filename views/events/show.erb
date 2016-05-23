@@ -1,6 +1,8 @@
 <h1>Event</h1>
 
   <%= @event.sport %> - <%= @event.type %> - <%= @event.format_date(@event.day) %>
+  <%=  %>
+  <br><br>
   <a href="/events/<%= @event.id %>/edit">Edit</a>
   <a href="/events/<%= @event.id %>/delete">Delete</a>
   <br><br>
@@ -10,10 +12,38 @@
   <%= athlete.full_name %><br>
   <% end %><br>
 
+  <form action="/events/<%= @event.id %>/athletes" method="post">
+
+  <label for="athlete_id">Add athlete to this event:</label>
+    <select name="athlete_id">
+      <% @athletes.each do |athlete| %>
+      <option value="<%= athlete.id %>"><%= athlete.full_name %></option>
+      <% end %>
+  </select><br>
+
+      <button type="submit" name="add_athlete_to_event">Add</button>
+  </form>
+
+  <form action="/events/<%= @event.id %>/athletes" method="post">
+  <input type="hidden" name="_method" value="delete">
+
+  <label for="athlete_id">Remove athlete from this event:</label>
+    <select name="athlete_id">
+      <% @event.athletes.each do |athlete| %>
+      <option value="<%= athlete.id %>"><%= athlete.full_name %></option>
+      <% end %>
+  </select><br>
+  
+      <button type="submit" name="remove_athlete_to_event">Remove</button>
+  </form>
+
+<br>
 <a href="/events">All events</a>
 
 
 
 <!-- select from a list of athletes and add to event -->
 <!-- group athletes by nation in the drop down -->
+
+<!-- add gold silver bronze icons next to names -->
 

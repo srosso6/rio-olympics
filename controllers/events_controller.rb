@@ -41,3 +41,17 @@ delete '/events/:id' do
   Event.destroy(params[:id])
   redirect to ('/events')
 end
+
+post '/events/:id/athletes' do
+  @event = Event.find(params[:id])
+  @athlete = Athlete.find(params["athlete_id"])
+  @event.add_athlete(@athlete)
+  redirect to ("/events/#{@event.id}")
+end
+
+delete '/events/:id/athletes' do
+  @event = Event.find(params[:id])
+  @athlete = Athlete.find(params["athlete_id"])
+  @event.delete_athlete(@athlete)
+  redirect to ("/events/#{@event.id}")
+end
