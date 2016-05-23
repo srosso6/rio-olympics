@@ -1,8 +1,19 @@
 <h1>Event</h1>
 
-  <%= @event.sport %> - <%= @event.type %> - <%= @event.day %>
+  <%= @event.sport %> - <%= @event.type %> - <%= @event.format_date(@event.day) %>
   <a href="/events/<%= @event.id %>/edit">Edit</a>
   <a href="/events/<%= @event.id %>/delete">Delete</a>
-  <br>
+  <br><br>
+
+  <p>Athletes in event:</p>
+  <% @event.athletes.each do |athlete| %>
+  <%= athlete.full_name %><br>
+  <% end %><br>
 
 <a href="/events">All events</a>
+
+
+
+<!-- select from a list of athletes and add to event -->
+<!-- group athletes by nation in the drop down -->
+

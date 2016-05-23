@@ -3,7 +3,7 @@
 <a href="/events/new">Add an event</a><br><br>
 
 <% @events.each do |event| %>
-  <%= event.sport %> - <%= event.type %>
+  <a href="/events/<%= event.id %>"><%= event.sport %> - <%= event.type %></a>
   <a href="/events/<%= event.id %>/edit">Edit</a>
   <a href="/events/<%= event.id %>/delete">Delete</a><br>
 <% end %>

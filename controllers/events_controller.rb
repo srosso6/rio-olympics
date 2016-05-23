@@ -1,4 +1,5 @@
 require_relative('../models/event.rb')
+require_relative('../models/athlete.rb')
 
 get '/events' do
   @events = Event.all()
@@ -16,6 +17,7 @@ post '/events' do
 end
 
 get '/events/:id' do
+  @athletes = Athlete.all()
   @event = Event.find(params[:id])
   erb(:'events/show')
 end

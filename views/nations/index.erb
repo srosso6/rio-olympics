@@ -3,8 +3,8 @@
 <a href="/nations/new">Add a nation</a><br><br>
 
 <% @nations.each do |nation| %>
-  <span class="sprite-flags sprite-flags-large sprite-flags-large-<%= nation.code %>"></span>
-  <%= nation.title %> - <%= nation.code %>
+  <a href="/nations/<%= nation.id %>"><span class="sprite-flags sprite-flags-large sprite-flags-large-<%= nation.code %>"></span></a>
+  <a href="/nations/<%= nation.id %>"><%= nation.title %> - <%= nation.code %></a>
   <a href="/nations/<%= nation.id %>/edit">Edit</a>
   <a href="/nations/<%= nation.id %>/delete">Delete</a><br>
 <% end %>

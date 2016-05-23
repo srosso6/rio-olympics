@@ -1,0 +1,21 @@
+<table>
+
+  <tr>
+    <th scope="col">Nation</th>
+    <th scope="col">Gold</th>
+    <th scope="col">Silver</th>
+    <th scope="col">Bronze</th>
+    <th scope="col">Points</th>
+  </tr>
+
+  <% @medal.results_table().each do |result| %>
+    <tr>
+      <th scope="row"> <%= result[:nation] %> </th>
+      <td> <%= result[:gold] %> </th>
+      <td> <%= result[:silver] %> </th>
+      <td> <%= result[:bronze] %> </th>
+      <td> <%= result[:points] %> </th>
+    </tr>
+  <% end %>
+
+</table>

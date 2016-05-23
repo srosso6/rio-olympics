@@ -2,6 +2,7 @@ require('pry-byebug')
 require_relative('../models/nation.rb')
 require_relative('../models/athlete.rb')
 require_relative('../models/event.rb')
+require_relative('../models/medal.rb')
 require("date")
 
 Nation.delete_all()
@@ -20,20 +21,6 @@ nation_9 = Nation.new( { "title" => "Japan", "code" => "JPN" } ).save()
 nation_10 = Nation.new( { "title" => "New Zealand", "code" => "NZL" } ).save()
 nation_11 = Nation.new( { "title" => "Madagasca", "code" => "MAD" } ).save()
 nation_12 = Nation.new( { "title" => "South Africa", "code" => "RSA" } ).save()
-
-
-events_data = [
- {"sport" => "Athletics", "type" => "10,000m", "day" => Date.new(2016, 05, 20), },
- {"sport" => "Athletics", "type" => "High Jump", "day" => Date.new(2016, 05, 21), },
- {"sport" => "Athletics", "type" => "Javelin Throw", "day" => Date.new(2016, 05, 22), },
- {"sport" => "Artistic Gymnastics", "type" => "Pommel Horse", "day" => Date.new(2016, 05, 23), },
- {"sport" => "Artistic Gymnastics", "type" => "Vault", "day" => Date.new(2016, 05, 24), },
- {"sport" => "Artistic Gymnastics", "type" => "Uneven bars", "day" => Date.new(2016, 05, 25), },
- {"sport" => "Swimming", "type" => "100m butterfly", "day" => Date.new(2016, 05, 26), },
- {"sport" => "Swimming", "type" => "50m freestyle", "day" => Date.new(2016, 05, 27), },
- {"sport" => "Diving", "type" => "3m springboard", "day" => Date.new(2016, 05, 28), } ,
- {"sport" => "Diving", "type" => "10m platform", "day" => Date.new(2016, 05, 29), }
-]
 
 
 athletes_data = [ 
@@ -91,15 +78,51 @@ athletes_data = [
 
 athletes = athletes_data.map { |athlete| Athlete.new(athlete).save() }
 
+
+events_data = [
+ # {"sport" => "Athletics", "type" => "10,000m", "day" => Date.new(2016, 05, 20), "gold_winner" => athletes[0].id, "silver_winner" => athletes[10].id, "bronze_winner" => athletes[20].id } ]
+ {"sport" => "Athletics", "type" => "10,000m", "day" => Date.new(2016, 05, 20) },
+ {"sport" => "Athletics", "type" => "High Jump", "day" => Date.new(2016, 05, 21), },
+ {"sport" => "Athletics", "type" => "Javelin Throw", "day" => Date.new(2016, 05, 22), },
+ {"sport" => "Artistic Gymnastics", "type" => "Pommel Horse", "day" => Date.new(2016, 05, 23), },
+ {"sport" => "Artistic Gymnastics", "type" => "Vault", "day" => Date.new(2016, 05, 24), },
+ {"sport" => "Artistic Gymnastics", "type" => "Uneven bars", "day" => Date.new(2016, 05, 25), },
+ {"sport" => "Swimming", "type" => "100m butterfly", "day" => Date.new(2016, 05, 26), },
+ {"sport" => "Swimming", "type" => "50m freestyle", "day" => Date.new(2016, 05, 27), },
+ {"sport" => "Diving", "type" => "3m springboard", "day" => Date.new(2016, 05, 28), } ,
+ {"sport" => "Diving", "type" => "10m platform", "day" => Date.new(2016, 05, 29), }
+]
+
+nations = [nation_1, nation_2, nation_3, nation_4, nation_5, nation_6, nation_7, nation_8, nation_9, nation_10, nation_11, nation_12]
+
 events = events_data.map { |event| Event.new(event).save() }
 
-
 i = 0
-while i<events.length
- events[i].add_athletes([athletes[i], athletes[i+10], athletes[i+20], athletes[i+30], athletes[i+40]])
-i += 1
+  while i<events.length
+   events[i].add_athletes([athletes[i], athletes[i+10], athletes[i+20], athletes[i+30], athletes[i+40]])
+  i += 1
 end
 
+i = 0
+events[i].add_winners(athletes[i],athletes[i+10],athletes[i+20])
+events[i+1].add_winners(athletes[i+1],athletes[i+11],athletes[i+21])
+events[i+2].add_winners(athletes[i+2],athletes[i+12],athletes[i+22])
+events[i+3].add_winners(athletes[i+3],athletes[i+13],athletes[i+23])
+events[i+4].add_winners(athletes[i+4],athletes[i+14],athletes[i+24])
+events[i+5].add_winners(athletes[i+5],athletes[i+15],athletes[i+25])
+
+
+
+# medal_1 = Medal.new(nations, events)
+
+# medal_1.results_table.each do |result|
+
+#   @nation = result[:nation]
+#   @gold = result[:gold]
+# end
+
+# puts @nation
+# puts @gold
 
 # puts Nation.find(1).title
 
