@@ -16,3 +16,23 @@ get '/results' do
   @medal = Medal.new(@nations, @events)
   erb(:results)
 end
+
+get '/results/j' do
+  content_type( :json )
+
+  @nations = Nation.all()
+  @events = Event.all()
+  @medal = Medal.new(@nations, @events) 
+
+  # @medal.results_table().each do |result|
+  #   result[:nation]
+  #   result[:gold]
+  #   result[:silver]
+  #   result[:bronze]
+  #   result[:points]
+  # end
+
+  results = @medal.results_table()
+
+  return results.to_json
+end

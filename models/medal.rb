@@ -43,5 +43,37 @@ class Medal
     return results.reverse
   end
 
+  def event_medalists(event)
+
+    gold_winner = {name: "", nation: ""}
+    silver_winner = {name: "", nation: ""}
+    bronze_winner = {name: "", nation: ""}
+
+    event.athletes.each do |athlete|
+      if athlete.id == event.gold_winner
+        gold_winner[:name] = athlete.full_name
+        gold_winner[:nation] = athlete.nation.code
+      end
+      if athlete.id == event.silver_winner
+        silver_winner[:name] = athlete.full_name
+        silver_winner[:nation] = athlete.nation.code
+      end
+      if athlete.id == event.bronze_winner
+        bronze_winner[:name] = athlete.full_name
+        bronze_winner[:nation] = athlete.nation.code
+      end
+    end
+      return { event: "#{event.sport}: #{event.type}", gold: gold_winner, silver: silver_winner, bronze: bronze_winner }
+  end
+
+  def medalists_table()
+    results = []
+    @events.each do |event|
+      results << event_medalists(event)
+    end
+    results.sort_by! { |event_stats| event_stats[:event] }
+    return results
+  end
+
 end
 

@@ -5,4 +5,12 @@
   <a href="/nations/<%= @nation.id %>/edit">Edit</a>
   <a href="/nations/<%= @nation.id %>/edit">Delete</a><br><br>
 
+  <a href="/athletes/new">Add athlete</a><br><br>
+
+  <% @nation.athletes.each do |athlete| %>
+  <a href="/athletes/<%= athlete.id %>"><%= athlete.full_name %></a>
+  <a href="/athletes/<%= athlete.id %>/edit">Edit</a>
+  <a href="/athletes/<%= athlete.id %>/delete">Delete</a><br>
+  <% end %><br><br>
+
 <a href="/nations">All nations</a>

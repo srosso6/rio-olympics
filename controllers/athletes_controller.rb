@@ -14,7 +14,7 @@ end
 post '/athletes' do
   athlete = Athlete.new(params)
   athlete.save()
-  redirect to('/athletes')
+  redirect to("/nations/#{athlete.nation_id}")
 end
 
 get '/athletes/:id' do
@@ -29,8 +29,9 @@ get '/athletes/:id/edit' do
 end
 
 put '/athletes/:id' do
-  @athlete = Athlete.update(params)
-  redirect to ('/athletes')
+  Athlete.update(params)
+  athlete = Athlete.find(params[:id])
+  redirect to ("/nations/#{athlete.nation_id}")
 end
 
 get '/athletes/:id/delete' do
@@ -39,6 +40,8 @@ get '/athletes/:id/delete' do
 end
 
 delete '/athletes/:id' do
+  athlete = Athlete.find(params[:id])
+  nation_id = athlete.nation_id
   Athlete.destroy(params[:id])
-  redirect to ('/athletes')
+  redirect to ("/nations/#{nation_id}")
 end

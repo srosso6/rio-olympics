@@ -59,9 +59,9 @@ class Event
       sport = '#{options['sport']}',
       type = '#{options['type']}',
       day = '#{options['day']}',
-      gold_winner = #{options[gold_winner]},
+      gold_winner = #{options['gold_winner']},
       silver_winner = #{options['silver_winner']},
-      bronze_winner = #{options['bronze_winner']},
+      bronze_winner = #{options['bronze_winner']}
       WHERE events.id = #{options['id']};"
     SqlRunner.run(sql)
   end

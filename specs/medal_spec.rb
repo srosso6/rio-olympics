@@ -69,4 +69,29 @@ class TestMedal < Minitest::Test
     assert_equal(1, @medal_1.count_nation_medals_and_points(@nation_6)[:gold])
   end
 
+  def test_event_medalists()
+    assert_equal( { event: "Athletics: 10,000m" ,
+      gold: { name: "Aaron Brown", nation: "CAN" },
+      silver: { name: "Mo Farah", nation: "GBR" },
+      bronze: { name: "Nilson Andre", nation: "BRA"} }, 
+      @medal_1.event_medalists(@medal_1.events[0]) )
+  end
+
+  def test_medalists_table()
+    assert_equal( [ 
+      { event: "Athletics: 10,000m" ,
+          gold: { name: "Aaron Brown", nation: "CAN" },
+          silver: { name: "Mo Farah", nation: "GBR" },
+          bronze: { name: "Nilson Andre", nation: "BRA"} },
+      { event: "Athletics: High Jump" ,
+          gold: { name: "Caio Bonfim", nation: "BRA" },
+          silver: { name: "Greg Rutherford", nation: "GBR" },
+          bronze: { name: "Phil Edwards", nation: "CAN"} },
+      { event: "Athletics: Javelin Throw" ,
+          gold: { name: "Jessica Ennis-Hill", nation: "GBR" },
+          silver: { name: "Geisa Arcanjo", nation: "BRA" },
+          bronze: { name: "Lauren Regula", nation: "CAN"} } ],
+      @medal_1.medalists_table() )
+  end
+
 end
