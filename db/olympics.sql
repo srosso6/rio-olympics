@@ -39,4 +39,4 @@ athlete_id INT4 references athletes(id) ON DELETE CASCADE,
 event_id INT4 references events(id) ON DELETE CASCADE
 );
 
--- CREATE UNIQUE INDEX blah ON athletes_events(athlete_id, event_id)
+CREATE UNIQUE INDEX uq_athletes_events ON athletes_events(athlete_id, event_id);

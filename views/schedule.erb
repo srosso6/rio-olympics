@@ -1,0 +1,15 @@
+<table>
+
+  <tr>
+    <th scope="col">Event</th>
+    <th scope="col">Date</th>
+  </tr>
+
+  <% @events.each do |event| %>
+    <tr class="<%= event.date_has_passed? ? "pdate" : "" %>">
+      <th scope="row"> <%= event.type %> </th>
+      <td> <%= event.format_date(event.day) %> </th>
+    </tr>
+  <% end %>
+
+</table>

@@ -5,6 +5,7 @@ require_relative('controllers/events_controller')
 require_relative('controllers/nations_controller')
 require_relative('models/medal.rb')
 require('pry-byebug')
+require("json")
 
 get '/' do
   erb(:home)
@@ -17,22 +18,31 @@ get '/results' do
   erb(:results)
 end
 
-get '/results/j' do
+get '/schedule' do
+  @events = Event.all()
+  erb(:schedule)
+end
+
+get '/results/nations' do
+  content_type( :json )
+
+  @nations = Nation.all()
+  @events = Event.all()
+  @medal = Medal.new(@nations, @events) 
+  
+  results = @medal.results_table()
+
+  return results.to_json
+end
+
+get '/results/events' do
   content_type( :json )
 
   @nations = Nation.all()
   @events = Event.all()
   @medal = Medal.new(@nations, @events) 
 
-  # @medal.results_table().each do |result|
-  #   result[:nation]
-  #   result[:gold]
-  #   result[:silver]
-  #   result[:bronze]
-  #   result[:points]
-  # end
-
-  results = @medal.results_table()
+  results = @medal.medalists_table()
 
   return results.to_json
 end

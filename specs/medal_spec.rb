@@ -80,18 +80,24 @@ class TestMedal < Minitest::Test
   def test_medalists_table()
     assert_equal( [ 
       { event: "Athletics: 10,000m" ,
-          gold: { name: "Aaron Brown", nation: "CAN" },
-          silver: { name: "Mo Farah", nation: "GBR" },
-          bronze: { name: "Nilson Andre", nation: "BRA"} },
+        gold: { name: "Aaron Brown", nation: "CAN" },
+        silver: { name: "Mo Farah", nation: "GBR" },
+        bronze: { name: "Nilson Andre", nation: "BRA"} },
       { event: "Athletics: High Jump" ,
-          gold: { name: "Caio Bonfim", nation: "BRA" },
-          silver: { name: "Greg Rutherford", nation: "GBR" },
-          bronze: { name: "Phil Edwards", nation: "CAN"} },
+        gold: { name: "Caio Bonfim", nation: "BRA" },
+        silver: { name: "Greg Rutherford", nation: "GBR" },
+        bronze: { name: "Phil Edwards", nation: "CAN"} },
       { event: "Athletics: Javelin Throw" ,
-          gold: { name: "Jessica Ennis-Hill", nation: "GBR" },
-          silver: { name: "Geisa Arcanjo", nation: "BRA" },
-          bronze: { name: "Lauren Regula", nation: "CAN"} } ],
+        gold: { name: "Jessica Ennis-Hill", nation: "GBR" },
+        silver: { name: "Geisa Arcanjo", nation: "BRA" },
+        bronze: { name: "Lauren Regula", nation: "CAN"} } ],
       @medal_1.medalists_table() )
   end
+
+  def test_
+  end
+
+  # show all events based on dates
+  # show which events have happened... or highlight day we are on
 
 end

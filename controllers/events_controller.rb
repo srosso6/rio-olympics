@@ -6,6 +6,8 @@ get '/events' do
   erb(:'events/index')
 end
 
+# make a method to group the types by sport   -- group by?
+
 get '/events/new' do
   erb(:'events/new')
 end
@@ -55,3 +57,5 @@ delete '/events/:id/athletes' do
   @event.delete_athlete(@athlete)
   redirect to ("/events/#{@event.id}")
 end
+
+

@@ -24,7 +24,7 @@ class Event
   end
 
   def format_date(date)
-    date.strftime("%e/%I/%Y")
+    date.strftime("%d/%m/%Y")
   end
 
   def self.map_events(sql)
@@ -63,7 +63,10 @@ class Event
       silver_winner = #{options['silver_winner']},
       bronze_winner = #{options['bronze_winner']}
       WHERE events.id = #{options['id']};"
-    SqlRunner.run(sql)
+    begin
+      SqlRunner.run(sql)
+    rescue PG::CheckViolation
+    end
   end
 
   # def self.delete_all()
@@ -92,7 +95,10 @@ class Event
 
   def add_athlete(athlete)
     sql = "INSERT INTO athletes_events (athlete_id, event_id) VALUES (#{athlete.id}, #{@id});"
-    SqlRunner.run(sql)
+    begin
+      SqlRunner.run(sql)
+    rescue PG::UniqueViolation
+    end
   end
 
   def add_athletes(athletes)
@@ -142,6 +148,10 @@ class Event
     @silver_winner = athlete_2.id
     @bronze_winner = athlete_3.id
     update_winners()
+  end
+
+  def date_has_passed?(day)
+    Date.today > day 
   end
 
 end
