@@ -52,16 +52,16 @@ class TestMedal < Minitest::Test
   end
 
   def test_count_nation_medals_and_points()
-    assert_equal({ nation: @nation_1.title, gold: 1, silver: 0, bronze: 2, points: 7 }, @medal_1.count_nation_medals_and_points(@nation_1))
-    assert_equal({ nation: @nation_4.title, gold: 1, silver: 1, bronze: 1, points: 9 }, @medal_1.count_nation_medals_and_points(@nation_4))
-    assert_equal({ nation: @nation_6.title, gold: 1, silver: 2, bronze: 0, points: 11 }, @medal_1.count_nation_medals_and_points(@nation_6))
+    assert_equal({ nation: @nation_1.title, nation_code: @nation_1.code, gold: 1, silver: 0, bronze: 2, points: 7 }, @medal_1.count_nation_medals_and_points(@nation_1))
+    assert_equal({ nation: @nation_4.title, nation_code: @nation_4.code, gold: 1, silver: 1, bronze: 1, points: 9 }, @medal_1.count_nation_medals_and_points(@nation_4))
+    assert_equal({ nation: @nation_6.title, nation_code: @nation_6.code, gold: 1, silver: 2, bronze: 0, points: 11 }, @medal_1.count_nation_medals_and_points(@nation_6))
   end 
 
   def test_results_table()
     assert_equal( 
-      [ { nation: @nation_6.title, gold: 1, silver: 2, bronze: 0, points: 11 }, 
-        { nation: @nation_4.title, gold: 1, silver: 1, bronze: 1, points: 9 }, 
-        { nation: @nation_1.title, gold: 1, silver: 0, bronze: 2, points: 7 } ],
+      [ { nation: @nation_6.title, nation_code: @nation_6.code, gold: 1, silver: 2, bronze: 0, points: 11 }, 
+        { nation: @nation_4.title, nation_code: @nation_4.code, gold: 1, silver: 1, bronze: 1, points: 9 }, 
+        { nation: @nation_1.title, nation_code: @nation_1.code, gold: 1, silver: 0, bronze: 2, points: 7 } ],
       @medal_1.results_table())
   end
 
@@ -93,11 +93,5 @@ class TestMedal < Minitest::Test
         bronze: { name: "Lauren Regula", nation: "CAN"} } ],
       @medal_1.medalists_table() )
   end
-
-  def test_
-  end
-
-  # show all events based on dates
-  # show which events have happened... or highlight day we are on
 
 end

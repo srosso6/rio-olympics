@@ -31,7 +31,7 @@ class Medal
         end
       end
     end
-      return { nation: nation.title, gold: gold, silver: silver, bronze: bronze, points: points }
+      return { nation: nation.title, nation_code: nation.code, gold: gold, silver: silver, bronze: bronze, points: points }
   end
 
   def results_table()

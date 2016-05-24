@@ -10,7 +10,8 @@
 
   <% @medal.results_table().each do |result| %>
     <tr>
-      <th scope="row"> <%= result[:nation] %> </th>
+      <th scope="row"> <%= result[:nation] %> 
+      <span class="sprite-flags sprite-flags-large sprite-flags-large-<%= result[:nation_code] %>"></span> </th>
       <td> <%= result[:gold] %> </th>
       <td> <%= result[:silver] %> </th>
       <td> <%= result[:bronze] %> </th>
@@ -33,9 +34,9 @@
   <% @medal.medalists_table().each do |result| %>
     <tr>
       <th scope="row"> <%= result[:event] %> </th>
-      <td> <%= result[:gold][:name] %> <br> <span class="sprite-flags sprite-flags-large sprite-flags-large-<%= result[:gold][:nation] %>"></span><br><%= %></th>
-      <td> <%= result[:silver][:name] %> <br> <span class="sprite-flags sprite-flags-large sprite-flags-large-<%= result[:silver][:nation] %>"></span></th>
-      <td> <%= result[:bronze][:name] %> <br> <span class="sprite-flags sprite-flags-large sprite-flags-large-<%= result[:bronze][:nation] %>"></span></th>
+      <td> <%= result[:gold][:name] %> <br> <span class="sprite-flags sprite-flags-small sprite-flags-small-<%= result[:gold][:nation] %>"></span><br><%= %></th>
+      <td> <%= result[:silver][:name] %> <br> <span class="sprite-flags sprite-flags-small sprite-flags-small-<%= result[:silver][:nation] %>"></span></th>
+      <td> <%= result[:bronze][:name] %> <br> <span class="sprite-flags sprite-flags-small sprite-flags-small-<%= result[:bronze][:nation] %>"></span></th>
     </tr>
   <% end %>
 

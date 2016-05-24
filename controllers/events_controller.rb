@@ -2,11 +2,10 @@ require_relative('../models/event.rb')
 require_relative('../models/athlete.rb')
 
 get '/events' do
-  @events = Event.all()
+  events = Event.all()
+  @grouped_events = events.group_by { |event| event.sport }
   erb(:'events/index')
 end
-
-# make a method to group the types by sport   -- group by?
 
 get '/events/new' do
   erb(:'events/new')
@@ -20,6 +19,7 @@ end
 
 get '/events/:id' do
   @athletes = Athlete.all()
+  @grouped_athletes = @athletes.group_by { |athlete| athlete.nation.title }
   @event = Event.find(params[:id])
   erb(:'events/show')
 end

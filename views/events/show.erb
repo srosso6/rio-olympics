@@ -7,12 +7,14 @@
   <a href="/events/<%= @event.id %>/delete">Delete</a>
   <br><br>
 
+
   <p>Athletes in event:</p>
   <% @event.athletes.each do |athlete| %>
   <%= athlete.full_name %><br>
   <% end %><br>
 
-  <form action="/events/<%= @event.id %>/athletes" method="post">
+
+<!--   <form action="/events/<%= @event.id %>/athletes" method="post">
 
   <label for="athlete_id">Add athlete to this event:</label>
     <select name="athlete_id">
@@ -22,7 +24,24 @@
   </select><br>
 
       <button type="submit" name="add_athlete_to_event">Add</button>
+  </form> -->
+
+  <form action="/events/<%= @event.id %>/athletes" method="post">
+
+  <label for="athlete_id">Add athlete to this event:</label>
+    <select name="athlete_id">
+      <% @grouped_athletes.each do | key, athletes | %>
+        <optgroup label= "<%= key %>" >
+          <% athletes.each do |athlete| %>
+          <option value="<%= athlete.id %>"><%= athlete.full_name %></option>
+          <% end %>
+        </optgroup>
+      <% end %>
+  </select><br>
+
+      <button type="submit" name="add_athlete_to_event">Add</button>
   </form>
+
 
   <form action="/events/<%= @event.id %>/athletes" method="post">
   <input type="hidden" name="_method" value="delete">

@@ -94,6 +94,7 @@ events_data = [
  {"sport" => "Diving", "type" => "10m platform", "day" => Date.new(2016, 05, 29), }
 ]
 
+
 events = events_data.map { |event| Event.new(event).save() }
 
 
@@ -112,7 +113,12 @@ events[4].add_winners(athletes[14],athletes[4],athletes[34])
 events[5].add_winners(athletes[45],athletes[25],athletes[5])
 
 
+# grouped_athletes = athletes.group_by { |athlete| athlete.nation.title }
 
+# new_events = events.group_by { |event| event.sport }
+
+binding.pry
+nil
 
 # medal_1 = Medal.new(nations, events)
 

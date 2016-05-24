@@ -20,6 +20,7 @@ end
 
 get '/schedule' do
   @events = Event.all()
+  @events.sort_by! { |event| event.day }
   erb(:schedule)
 end
 

@@ -6,6 +6,9 @@ li {
   display: inline-block;
 }
 
+.pdate {
+  color: #888;
+}
 
 /*   FLAGS   */
 
@@ -141,25 +144,25 @@ li {
     background-size: 527px 516px;
 }
 
-.sprite-sports-dive {
+.sprite-sports-di {
     background-position: -180px -381px;
     width: 45px;
     height: 45px;
 }
 
-.sprite-sports-swim {
+.sprite-sports-sw {
     background-position: -482px -270px;
     width: 45px;
     height: 45px;
 }
 
-.sprite-sports-ath {
+.sprite-sports-at {
     background-position: -135px -336px;
     width: 45px;
     height: 45px;
 }
 
-.sprite-sports-gym {
+.sprite-sports-ar {
     background-position: -437px -135px;
     width: 45px;
     height: 45px;
