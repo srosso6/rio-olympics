@@ -70,7 +70,7 @@ class TestMedal < Minitest::Test
   end
 
   def test_event_medalists()
-    assert_equal( { event: "Athletics: 10,000m" ,
+    assert_equal( { event: "Athletics - 10,000m" ,
       gold: { name: "Aaron Brown", nation: "CAN" },
       silver: { name: "Mo Farah", nation: "GBR" },
       bronze: { name: "Nilson Andre", nation: "BRA"} }, 
@@ -79,15 +79,15 @@ class TestMedal < Minitest::Test
 
   def test_medalists_table()
     assert_equal( [ 
-      { event: "Athletics: 10,000m" ,
+      { event: "Athletics - 10,000m" ,
         gold: { name: "Aaron Brown", nation: "CAN" },
         silver: { name: "Mo Farah", nation: "GBR" },
         bronze: { name: "Nilson Andre", nation: "BRA"} },
-      { event: "Athletics: High Jump" ,
+      { event: "Athletics - High Jump" ,
         gold: { name: "Caio Bonfim", nation: "BRA" },
         silver: { name: "Greg Rutherford", nation: "GBR" },
         bronze: { name: "Phil Edwards", nation: "CAN"} },
-      { event: "Athletics: Javelin Throw" ,
+      { event: "Athletics - Javelin Throw" ,
         gold: { name: "Jessica Ennis-Hill", nation: "GBR" },
         silver: { name: "Geisa Arcanjo", nation: "BRA" },
         bronze: { name: "Lauren Regula", nation: "CAN"} } ],

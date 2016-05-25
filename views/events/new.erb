@@ -1,16 +1,24 @@
-<h1>Add an event</h1>
+<h2>Add an event</h2>
 
 <form action="/events" method="post">
 
-    <label for="sport">Sport:</label>
-    <input type="text" name="sport"><br>
+    <div class="form-group">
+      <label for="sport">Sport:</label>
+      <input type="text" name="sport"><br>
+    </div>
 
-    <label for="type">Type:</label>
-    <input type="text" name="type"><br>
+    <div class="form-group">
+      <label for="type">Type:</label>
+      <input type="text" name="type"><br>
+    </div>
 
-    <label for="day">Date:</label>
-    <input type="date" name="day"><br>
+    <div class="form-group">
+      <label for="day">Date:</label>
+      <input type="date" name="day"><br>
+    </div>
 
-    <button type="submit" name="add event">Add</button>
+    <button type="submit" class="btn add-btn">Add</button>
+
+    <a href="/events"><button type="button" class="btn">Go Back</button></a>
 
 </form>

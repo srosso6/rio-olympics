@@ -1,13 +1,18 @@
 require_relative('../models/athlete.rb')
 require_relative('../models/nation.rb')
+require("pry-byebug")
 
 get '/athletes' do
   @athletes = Athlete.all()
   erb(:'athletes/index')
 end
 
-get '/athletes/new' do
+get '/athletes/new/?:nation_id?' do
   @nations = Nation.all()
+  @id = nil
+  if params.has_key?("nation_id")
+    @id = params["nation_id"].to_i
+  end
   erb(:'athletes/new')
 end
 

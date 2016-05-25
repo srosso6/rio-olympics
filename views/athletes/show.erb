@@ -1,8 +1,6 @@
-<h1>Athlete</h1>
+<h2>Athlete</h2>
 
   <%= @athlete.first_name %> <%= @athlete.last_name %>
-  <a href="/athletes/<%= @athlete.id %>/edit">Edit</a>
-  <a href="/athletes/<%= @athlete.id %>/delete">Delete</a>
+  <a href="/athletes/<%= @athlete.id %>/edit"><img src="/img/edit.png" class="icon" alt="Edit"></a>
+  <a href="/athletes/<%= @athlete.id %>/delete"><img src="/img/delete.png" class="icon" alt="Delete"></a>
   <br>
-
-  <a href="/athletes">All athletes</a>

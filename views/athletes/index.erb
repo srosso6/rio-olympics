@@ -1,9 +1,9 @@
-<h1>Athletes</h1>
+<h2>Athletes</h2>
 
-<a href="/athletes/new">Add an athlete</a><br><br>
+<a href="/athletes/new"><button type="button" class="btn">Add an Athlete</button></a><br><br>
 
 <% @athletes.each do |athlete| %>
   <%= athlete.first_name %> <%= athlete.last_name %>
-  <a href="/athletes/<%= athlete.id %>/edit">Edit</a>
-  <a href="/athletes/<%= athlete.id %>/delete">Delete</a><br>
+  <a href="/athletes/<%= athlete.id %>/edit"><img src="/img/edit.png" class="icon" alt="Edit"></a>
+  <a href="/athletes/<%= athlete.id %>/delete"><img src="/img/delete.png" class="icon" alt="Delete"></a><br>
 <% end %>

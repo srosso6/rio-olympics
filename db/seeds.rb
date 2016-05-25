@@ -117,8 +117,8 @@ events[5].add_winners(athletes[45],athletes[25],athletes[5])
 
 # new_events = events.group_by { |event| event.sport }
 
-binding.pry
-nil
+# binding.pry
+# nil
 
 # medal_1 = Medal.new(nations, events)
 

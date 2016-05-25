@@ -1,36 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <title>Rio Olympics</title>
 
-  <!-- Latest compiled and minified CSS
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-  Optional theme
+<!--   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous"> -->
-
+  
+  <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700|PT+Sans+Narrow:400,700|Alegreya+Sans:400,700,800,300|Roboto:400,700,900,500,300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/css/sprite.css">
+  <link rel="stylesheet" type="text/css" href="/css/responsive.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <header>
-    <ul> 
-      <li>
-        <a href="/">Home</a>
-      </li>
-      <li>
-        <a href="/schedule">Schedule</a>
-      </li>
-      <li>
-        <a href="/results">Results</a>
-      </li>
-      <li>
-        <a href="/nations">Nations</a>
-      </li>
-      <li>
-        <a href="/events">Events</a>
-      </li>
-    </ul>
-  </header>
-  <%= yield %>
+  <div class="wrap">
+    <header class="main-header">
+      <h1> Rio Olympics </h1>
+      <nav>
+        <ul> 
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/schedule">Schedule</a>
+          </li>
+          <li>
+            <a href="/results">Results</a>
+          </li>
+          <li>
+            <a href="/nations">Nations</a>
+          </li>
+          <li>
+            <a href="/events">Events</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+      <div class="container">
+        <%= yield %>
+      </div>
+    </div>
+  <div class="footer">
+    <footer>
+      <p>&copy; 2016 Rebecca Kelly</p>
+    </footer>
+  </div>
 </body>
 </html>

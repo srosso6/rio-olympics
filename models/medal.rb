@@ -63,7 +63,7 @@ class Medal
         bronze_winner[:nation] = athlete.nation.code
       end
     end
-      return { event: "#{event.sport}: #{event.type}", gold: gold_winner, silver: silver_winner, bronze: bronze_winner }
+      return { event: "#{event.sport} - #{event.type}", gold: gold_winner, silver: silver_winner, bronze: bronze_winner }
   end
 
   def medalists_table()

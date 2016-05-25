@@ -1,8 +1,10 @@
 require_relative('../models/event.rb')
 require_relative('../models/athlete.rb')
+require("pry-byebug")
 
 get '/events' do
   events = Event.all()
+  events.sort_by! { |event| event.sport }
   @grouped_events = events.group_by { |event| event.sport }
   erb(:'events/index')
 end

@@ -1,4 +1,8 @@
-<table>
+<h2>Results</h2>
+
+<h3>Nation Medals</h3>
+
+<table class="table t1">
 
   <tr>
     <th scope="col">Nation</th>
@@ -10,19 +14,20 @@
 
   <% @medal.results_table().each do |result| %>
     <tr>
-      <th scope="row"> <%= result[:nation] %> 
-      <span class="sprite-flags sprite-flags-large sprite-flags-large-<%= result[:nation_code] %>"></span> </th>
-      <td> <%= result[:gold] %> </th>
-      <td> <%= result[:silver] %> </th>
-      <td> <%= result[:bronze] %> </th>
-      <td> <%= result[:points] %> </th>
+      <th scope="row" id="tnation"> <%= result[:nation] %>
+      <span class="sprite-flags sprite-flags-large sprite-flags-large-<%= result[:nation_code] %>" id="tflag"></span> </th>
+      <td> <%= result[:gold] %> </td>
+      <td> <%= result[:silver] %> </td>
+      <td> <%= result[:bronze] %> </td>
+      <td> <%= result[:points] %> </td>
     </tr>
   <% end %>
 
 </table><br><br>
 
+<h3>Event Medalists</h3>
 
-<table>
+<table class="table t2">
 
   <tr>
     <th scope="col">Event</th>
@@ -34,9 +39,9 @@
   <% @medal.medalists_table().each do |result| %>
     <tr>
       <th scope="row"> <%= result[:event] %> </th>
-      <td> <%= result[:gold][:name] %> <br> <span class="sprite-flags sprite-flags-small sprite-flags-small-<%= result[:gold][:nation] %>"></span><br><%= %></th>
-      <td> <%= result[:silver][:name] %> <br> <span class="sprite-flags sprite-flags-small sprite-flags-small-<%= result[:silver][:nation] %>"></span></th>
-      <td> <%= result[:bronze][:name] %> <br> <span class="sprite-flags sprite-flags-small sprite-flags-small-<%= result[:bronze][:nation] %>"></span></th>
+      <td> <%= result[:gold][:name] %> <br> <span class="sprite-flags sprite-flags-small sprite-flags-small-<%= result[:gold][:nation] %>"></span><br><%= %></td>
+      <td> <%= result[:silver][:name] %> <br> <span class="sprite-flags sprite-flags-small sprite-flags-small-<%= result[:silver][:nation] %>"></span></td>
+      <td> <%= result[:bronze][:name] %> <br> <span class="sprite-flags sprite-flags-small sprite-flags-small-<%= result[:bronze][:nation] %>"></span></td>
     </tr>
   <% end %>
 

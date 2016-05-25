@@ -1,6 +1,6 @@
 require_relative('../models/nation.rb')
 
-get '/nations' do
+get '/nations/?' do
   @nations = Nation.all()
   erb(:'nations/index')
 end

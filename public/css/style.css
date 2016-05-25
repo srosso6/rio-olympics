@@ -1,169 +1,272 @@
-body {
-  background-color: #F2FCFF;
+* {
+  box-sizing: border-box;
 }
 
-li {
+.wrap {
+  min-height: calc(100vh - 93px);
+  background-color: #FAFFFD;
+  font-family: 'Alegreya Sans', sans-serif;
+  text-align: center;
+  margin-top: 219px;
+}
+
+a:link,
+a:visited {
+  color: #D63C35;
+}
+
+a:hover {
+  color: #177011;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+/* MAIN HEADER */ 
+
+.main-header {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  margin-bottom: 25px;
+  padding: 0;
+  padding: 1.5em 0;
+  margin: 0;
+  background-color: #2B63BA;
+  background-image: url("/img/logo.png");
+  background-repeat: no-repeat;
+  background-size: 6%;
+  background-position: 7% 50%;
+  border-bottom: 2px solid #000;
+  text-align: center;
+  font-weight: 800;
+  color: #D63C35;
+}
+
+h1 {
+  margin: 0;
+  margin-bottom: 15px;
+  font-size: 2em;
+}
+
+/*input [type="radio"]:checked {
+
+}*/
+
+
+/* NAVIGATION */
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  font-size: 1.2em;
+}
+
+nav a:hover {
+  color: #FFE419;
+}
+
+
+/*trying to add margin above li in nav on phones
+nav ul li {
+  margin-top: 30px 0;
+}*/
+
+
+/* MAIN CONTENT */
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+h2 {
+  color: #D63C35;
+  font-size: 2em;
+  padding-top: 25px;
+}
+
+
+/* FOOTER */
+
+.footer {
+  background-color: #2B63BA;
+  padding: 1.5em 0;
+  border-top: 2px solid #000;
+  text-align: center;
+  margin-top: 25px;
+}
+
+.footer p {
+  margin: 0;
+}
+
+
+/* TABLES */
+
+.table {
+  margin: 0 auto;
+  margin-bottom: 35px;
+  margin-top: 35px;
+}
+
+tr td:nth-child(n+2) {
+  border-left: 1px solid #177011;
+}
+
+tr th:nth-child(n+2) {
+  border-left: 1px solid #177011;
+}
+
+tr:hover {
+  background-color: #FFE419;
+}
+
+.table td {
+  padding: 8px;
+  line-height: 1.2;
+  vertical-align: center;
+  border-top: 1px solid #177011;
+}
+
+.table th {
+  padding: 8px;
+  line-height: 1.2;
+  vertical-align: bottom;
+  border-top: 1px solid #177011;
+  text-align: left;
+}
+
+th[scope="col"] {
+  border-bottom: 2px solid #177011;
+  border-top: none;
+  text-align: center;
+}
+
+#tnation {
+  position: relative;
+}
+
+#tflag {
+  position: absolute;
+  right: 10px;
+  top: 4px;
+  margin-left: 40px;
+}
+
+
+/* BUTTONS */
+
+.btn {
+  color: black;
+  cursor: pointer;
   display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  text-align: center;
+  line-height: 1.5;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-family: 'Alegreya Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: #2B63BA;
 }
 
+.btn:hover {
+  background-color: #20498A;
+}
+
+.edit-btn {
+  background-color: #FFE419;
+}
+
+.del-btn {
+  background-color: #D63C35;
+}
+
+.edit-btn:hover,
+.add-btn:hover {
+  background-color: #177011;
+}
+
+.del-btn:hover {
+  background-color: #992824;
+}
+
+
+/* ICONS */
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+
+/* SCHEDULE - fade events that have occured */
 .pdate {
+  background-color: rgba(136,131,129,0.1);
   color: #888;
 }
 
-/*   FLAGS   */
+/* RESULTS */
 
-.sprite-flags {
-  display: inline-block;
-  background-image: url("../img/sprite-flags.png");
-}
 
-.sprite-flags-large {
-  width: 41px;
-  height: 30px;
-}
 
-.sprite-flags-small {
-  width: 26px;
-  height: 19px;
-}
+/* EVENTS */
 
-.sprite-flags-large- {
-  background-image: none;
-}
-
-.sprite-flags-small- {
-  background-image: none;
-}
-
-.sprite-flags-small-ARG {
-  background-position: -520px -577px;
-}
-
-.sprite-flags-large-ARG {
-  background-position: -123px -0px;
-}
-
-.sprite-flags-large-BRA {
-  background-position: -246px -118px;
-}
-
-.sprite-flags-small-BRA {
-  background-position: -585px -152px;
-}
-
-.sprite-flags-large-CAN {
-  background-position: -287px -89px;
-}
-
-.sprite-flags-small-CAN {
-  background-position: -364px -558px;
-}
-
-.sprite-flags-large-GBR {
-  background-position: -410px -236px;
-}
-
-.sprite-flags-small-GBR {
-  background-position: -208px -520px;
-}
-
-.sprite-flags-large-GRE {
-  background-position: -287px -384px;
-}
-
-.sprite-flags-small-GRE {
-  background-position: -533px -437px;
-}
-
-.sprite-flags-large-JPN {
-  background-position: -492px -177px;
-}
-
-.sprite-flags-small-JPN {
-  background-position: -335px -472px;
-}
-
-.sprite-flags-large-MAD {
-  background-position: -451px -413px;
-}
-.sprite-flags-small-MAD {
-  background-position: -364px -501px;
-}
-
-.sprite-flags-large-MEX {
-  background-position: -451px -59px;
-}
-
-.sprite-flags-small-MEX {
-  background-position: -533px -114px;
-}
-
-.sprite-flags-large-NZL {
-  background-position: -369px -354px;
-}
-.sprite-flags-small-NZL {
-  background-position: -494px -520px;
-}
-
-.sprite-flags-large-POL {
-  background-position: -369px -89px;
-}
-.sprite-flags-small-POL {
-  background-position: -494px -539px;
-}
-
-.sprite-flags-large-RSA {
-  background-position: -82px -325px;
-}
-
-.sprite-flags-small-RSA {
-  background-position: -559px -190px;
-}
-
-.sprite-flags-large-SWE {
-  background-position: -123px -236px;
-}
-.sprite-flags-small-SWE {
-  background-position: -585px -19px;
-}
-
-.sprite-flags-large-USA {
-  background-position: -164px -30px;
-}
-
-.sprite-flags-small-USA {
-  background-position: -338px -577px;
+.event {
+  border: 2px solid #177011;
+  border-radius: 4px;
+  margin: 5% 0;
 }
 
 
-/* SPORTS */
+/* NATIONS */
 
-.sprite-sports {
-    display: inline-block;
-    background-image: url("../img/sprite-sports.png");
-    background-size: 527px 516px;
+.nation {
+  position: relative;
+  border: 1px solid #177011;
+  border-radius: 4px;
+  margin: 25px 0;
+  padding: 10px 0;
 }
 
-.sprite-sports-di {
-    background-position: -180px -381px;
-    width: 45px;
-    height: 45px;
+.nations {
+  width: 70%;
+  margin: 0 auto;
 }
 
-.sprite-sports-sw {
-    background-position: -482px -270px;
-    width: 45px;
-    height: 45px;
+#t2flag {
+  position: absolute;
+  left: 5px;
+  bottom: 8px;
 }
 
-.sprite-sports-at {
-    background-position: -135px -336px;
-    width: 45px;
-    height: 45px;
+#ta {
+  margin-left: 48px;
+  text-align: left;
 }
 
-.sprite-sports-ar {
-    background-position: -437px -135px;
-    width: 45px;
-    height: 45px;
+.home {
+  background-image: url("/img/colour-swirl.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 700px;
+  width: 100%;
 }
+
+/* 
+
+another way to position footer at the bottom... not dependent on size.
+
+position: absolute;
+left: 0;
+bottom: 0;
+
+however, if body is bigger than screen size, the footer will cover the body - can avoid this by setting a bottom margin to the body/main content that is equal to the size of the footer
+
+*/

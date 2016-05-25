@@ -1,0 +1,57 @@
+@media (min-width: 769px) {
+  .container {
+    width: 70%;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .wrap {
+    margin-top: 108px;
+  }
+
+  h1 {
+    display: inline-block;
+    margin-right: 25%;
+    margin-bottom: 0;
+    margin-left: 5%;
+  }
+
+  ul li:nth-child(n+2) {
+    margin-left: 40px;
+  }
+
+  nav {
+    display: inline-block;
+  }
+
+  li {
+    display: inline-block;
+  }
+
+  .table td {
+    width: 5%;
+  }
+
+  .table th {
+    width: 5%;
+  }
+
+  .event {
+    margin: 2.5% 1.5%;
+    padding: 2.1%;
+    float: left;
+    width: 22%;
+  }
+
+  .nation {
+    float: left;
+    margin: 2% 2%;
+    width: 29%;
+  }
+
+  .nations .nation:nth-child(3n + 4) {
+    clear: left;
+  }
+
+
+}

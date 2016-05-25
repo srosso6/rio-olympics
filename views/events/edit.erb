@@ -1,44 +1,56 @@
-<h1>Edit Event</h1>
+<h2>Edit Event</h2>
 
 <form action="/events/<%= @event.id %>" method="post">
 <input type="hidden" name="_method" value="put">
 
-    <label for="sport">Sport:</label>
-    <input type="text" name="sport" value="<%= @event.sport %>"><br>
+    <div class="form-group">
+        <label for="sport">Sport:</label>
+        <input type="text" name="sport" value="<%= @event.sport %>"><br>
+    </div>
 
-    <label for="type">Type:</label>
-    <input type="text" name="type" value="<%= @event.type %>"><br>
+    <div class="form-group">
+        <label for="type">Type:</label>
+        <input type="text" name="type" value="<%= @event.type %>"><br>
+    </div>
 
-    <label for="day">Date:</label>
-    <input type="date" name="day" value="<%= @event.day %>"><br>
+    <div class="form-group">
+        <label for="day">Date:</label>
+        <input type="date" name="day" value="<%= @event.day %>"><br>
+    </div>
 
-    <label for="gold_winner">Gold Winner:</label>
-      <select name="gold_winner">
-        <option value="0">No Winner</option>
-        <% @event.athletes.each do |athlete| %>
-        <option value="<%= athlete.id %>" <%= "selected" if @event.gold_winner == athlete.id %>><%= athlete.full_name %></option>
-        <% end %>
-    </select>
+    <div class="form-group">
+        <label for="gold_winner">Gold Winner:</label>
+          <select name="gold_winner">
+            <option value="0">No Winner</option>
+            <% @event.athletes.each do |athlete| %>
+            <option value="<%= athlete.id %>" <%= "selected" if @event.gold_winner == athlete.id %>><%= athlete.full_name %></option>
+            <% end %>
+        </select>
+    </div>
 
-    <label for="silver_winner">Silver Winner:</label>
-      <select name="silver_winner">
-        <option value="0">No Winner</option>
-        <% @event.athletes.each do |athlete| %>
-        <option value="<%= athlete.id %>" <%= "selected" if @event.silver_winner == athlete.id %>><%= athlete.full_name %></option>
-        <% end %>
-    </select>
+    <div class="form-group">
+        <label for="silver_winner">Silver Winner:</label>
+          <select name="silver_winner">
+            <option value="0">No Winner</option>
+            <% @event.athletes.each do |athlete| %>
+            <option value="<%= athlete.id %>" <%= "selected" if @event.silver_winner == athlete.id %>><%= athlete.full_name %></option>
+            <% end %>
+        </select>
+    </div>
 
-    <label for="bronze_winner">Bronze Winner:</label>
-      <select name="bronze_winner">
-        <option value="0">No Winner</option>
-        <% @event.athletes.each do |athlete| %>
-        <option value="<%= athlete.id %>" <%= "selected" if @event.bronze_winner == athlete.id %>><%= athlete.full_name %></option>
-        <% end %>
-    </select>
+    <div class="form-group">
+        <label for="bronze_winner">Bronze Winner:</label>
+          <select name="bronze_winner">
+            <option value="0">No Winner</option>
+            <% @event.athletes.each do |athlete| %>
+            <option value="<%= athlete.id %>" <%= "selected" if @event.bronze_winner == athlete.id %>><%= athlete.full_name %></option>
+            <% end %>
+        </select>
+    </div>
 
     <br>
-    <button type="submit" name="edit event">Edit</button>
+    <button type="submit" class="btn edit-btn">Edit</button>
 </form>
 
 <br>
-<a href="/events">Back to all events</a>
+<a href="/events"><button type="button" class="btn">Go Back</button></a>

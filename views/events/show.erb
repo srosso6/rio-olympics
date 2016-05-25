@@ -1,30 +1,16 @@
-<h1>Event</h1>
+<h2>Event</h2>
 
   <%= @event.sport %> - <%= @event.type %> - <%= @event.format_date(@event.day) %>
-  <%=  %>
-  <br><br>
-  <a href="/events/<%= @event.id %>/edit">Edit</a>
-  <a href="/events/<%= @event.id %>/delete">Delete</a>
+  <a href="/events/<%= @event.id %>/edit"><img src="/img/edit.png" class="icon" alt="Edit"></a>
+  <a href="/events/<%= @event.id %>/delete"><img src="/img/delete.png" class="icon" alt="Delete"></a>
   <br><br>
 
 
   <p>Athletes in event:</p>
   <% @event.athletes.each do |athlete| %>
-  <%= athlete.full_name %><br>
+  <a href="/athletes/<%= athlete.id %>"><%= athlete.full_name %></a><br>
   <% end %><br>
 
-
-<!--   <form action="/events/<%= @event.id %>/athletes" method="post">
-
-  <label for="athlete_id">Add athlete to this event:</label>
-    <select name="athlete_id">
-      <% @athletes.each do |athlete| %>
-      <option value="<%= athlete.id %>"><%= athlete.full_name %></option>
-      <% end %>
-  </select><br>
-
-      <button type="submit" name="add_athlete_to_event">Add</button>
-  </form> -->
 
   <form action="/events/<%= @event.id %>/athletes" method="post">
 
@@ -39,7 +25,7 @@
       <% end %>
   </select><br>
 
-      <button type="submit" name="add_athlete_to_event">Add</button>
+      <button type="submit" class="btn">Add</button>
   </form>
 
 
@@ -53,16 +39,8 @@
       <% end %>
   </select><br>
   
-      <button type="submit" name="remove_athlete_to_event">Remove</button>
+      <button type="submit" class="btn">Remove</button>
   </form>
 
 <br>
-<a href="/events">All events</a>
-
-
-
-<!-- select from a list of athletes and add to event -->
-<!-- group athletes by nation in the drop down -->
-
-<!-- add gold silver bronze icons next to names -->
-
+<a href="/events"><button type="button" class="btn">All Events</button></a>

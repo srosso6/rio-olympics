@@ -1,14 +1,16 @@
-<h1>Events</h1>
+<h2>Events</h2>
 
-<a href="/events/new">Add an event</a><br><br>
+<a href="/events/new"><button type="button" class="btn">Add an Event</button></a><br><br>
 
 <% @grouped_events.each do | key, events | %>
-  <p><%= key %></p>
-  <span class="sprite-sports sprite-sports-<%= key.slice(0,2).downcase %>"></span></a><br><br>
-  <% events.each do |event| %>
-    <a href="/events/<%= event.id %>"><%= event.type %></a>
-    <a href="/events/<%= event.id %>/edit">Edit</a>
-    <a href="/events/<%= event.id %>/delete">Delete</a><br>
-  <% end %>
+  <div class="event">
+    <p><%= key %></p>
+    <span class="sprite-sports sprite-sports-<%= key.slice(0,2).downcase %>"></span><br><br>
+    <% events.each do |event| %>
+      <a href="/events/<%= event.id %>"><%= event.type %></a>
+      <a href="/events/<%= event.id %>/edit"><img src="/img/edit.png" class="icon" alt="Edit"></a>
+      <a href="/events/<%= event.id %>/delete"><img src="/img/delete.png" class="icon" alt="Delete"></a><br><br>
+    <% end %>
+  </div>
 <% end %>
 <br><br>

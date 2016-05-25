@@ -4,8 +4,7 @@
 <form action="/nations/<%= @nation.id %>" method="post">
 <input type="hidden" name="_method" value="delete" />
 
-<button type="submit" name="delete nation">Yes, delete</button>
-</form>
+<button type="submit" class="btn del-btn">Delete</button>
+</form><br>
 
-<a href="/nations">No, go back</a>
-<!-- style as button! -->
+<a href="/nations"><button type="button" class="btn">Go Back</button></a>

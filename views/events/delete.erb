@@ -4,8 +4,7 @@
 <form action="/events/<%= @event.id %>" method="post">
 <input type="hidden" name="_method" value="delete" />
 
-<button type="submit" name="delete event">Yes, delete</button>
-</form>
+<button type="submit" name="delete event" class="btn del-btn">Delete</button>
+</form><br>
 
-<a href="/events">No, go back</a>
-<!-- style as button! -->
+<a href="/events"><button type="button" class="btn">Go Back</button></a>

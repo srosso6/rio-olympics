@@ -4,8 +4,7 @@
 <form action="/athletes/<%= @athlete.id %>" method="post">
 <input type="hidden" name="_method" value="delete" />
 
-<button type="submit" name="delete event">Yes, delete</button>
-</form>
+<button type="submit" class="btn del-btn">Delete</button>
+</form><br>
 
-<a href="/nations/<%= @athlete.nation_id %>">No</a>
-<!-- style as button! -->
+<a href="/nations/<%= @athlete.nation_id %>"><button type="button" class="btn">Go Back</button></a>

@@ -1,4 +1,6 @@
-<table>
+<h2>Schedule</h2>
+
+<table class="table">
 
   <tr>
     <th scope="col">Sport</th>
@@ -9,7 +11,7 @@
   <% @events.each do |event| %>
     <tr class="<%= event.date_has_passed?(event.day) ? "pdate" : "" %>">
       <th> <%= event.sport %> </th>
-      <th> <%= event.type %> </th>
+      <td> <%= event.type %> </td>
       <td> <%= event.format_date(event.day) %> </th>
     </tr>
   <% end %>

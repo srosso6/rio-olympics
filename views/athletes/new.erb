@@ -1,24 +1,37 @@
-<h1>Add an athlete</h1>
+<h2>Add an athlete</h2>
 
 <form action="/athletes" method="post">
 
-    <label for="first_name">First Name:</label>
-    <input type="text" name="first_name"><br>
+    <div class="form-group">
+        <label for="first_name">First Name:</label>
+        <input type="text" name="first_name"><br>
+    </div>
 
-    <label for="last_name">Last Name:</label>
-    <input type="text" name="last_name"><br>
+    <div class="form-group">
+        <label for="last_name">Last Name:</label>
+        <input type="text" name="last_name"><br>
+    </div>
 
-    <label for="gender">Gender:</label>
-    <input type="radio" value="f" name="gender">Female
-    <input type="radio" value="m" name="gender">Male<br>
+    <div class="form-group">
+        <label for="gender">Gender:</label>
+        <input type="radio" value="f" name="gender">Female
+        <input type="radio" value="m" name="gender">Male<br>
+    </div>
 
-    <label for="nation_id">Nation:</label>
-      <select name="nation_id">
-        <% @nations.each do |nation| %>
-        <option value="<%= nation.id %>"><%= nation.title %></option>
-        <% end %>
-    </select>
+    <div class="form-group">
+        <label for="nation_id">Nation:</label>
+          <select name="nation_id">
+            <% @nations.each do |nation| %>
+            <option value="<%= nation.id %>" <%= "selected" if nation.id == @id %>><%= nation.title %></option>
+            <% end %>
+        </select>
+    </div>
 
-    <button type="submit" name="add athlete">Add</button>
+    <button type="submit" class="btn add-btn">Add</button>
+
+    <br>
+    <br>
+
+    <a href="/nations/<%= @id %>"><button type="button" class="btn">Go Back</button></a>
 
 </form><br><br>
