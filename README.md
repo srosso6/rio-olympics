@@ -1,5 +1,3 @@
-# rio_olympics
-
 # A week-long assignment in week 5 of the 16-week programming course I attended at CodeClan. The aim was to consolidate and build upon what I had learned in the first 4 weeks including:
 
 # - Ruby fundamentals
